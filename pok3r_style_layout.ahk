@@ -190,3 +190,5 @@ Appskey & e::SendInput {Media_Next}
 // =========================
 
 #f:: Run, everything
+
+#b::Run, bash
