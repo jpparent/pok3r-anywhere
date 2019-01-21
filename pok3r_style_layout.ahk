@@ -182,3 +182,11 @@ Appskey & q::SendInput {Media_Prev}
 CapsLock & e::SendInput {Media_Next}
 
 Appskey & e::SendInput {Media_Next}
+
+
+
+// =========================
+// Keyboard Shortcuts!
+// =========================
+
+#f:: Run, everything
