@@ -180,9 +180,11 @@ Appskey & q::SendInput {Media_Prev}
 
 // Make Fn & e the next media key
 CapsLock & e::SendInput {Media_Next}
-
 Appskey & e::SendInput {Media_Next}
 
+// Make Fn & w the play pause media key
+CapsLock & w::SendInput {Media_Play_Pause}
+Appskey & w::SendInput {Media_Play_Pause}
 
 
 // =========================
