@@ -1,240 +1,263 @@
-﻿#CommentFlag //
-#InstallKeybdHook
+﻿InstallKeybdHook
 
-// Original Author: Jarvis Prestidge
-// Modified by: Jean-Philippe Parent
-// Description: Simulates my preferred keyboard layout, similiar to that of the Pok3r 60% keyboard
-// on any keyboard without programmable keys. i.e. my laptop ^^
+; Original Author: Jarvis Prestidge
+; Modified by: Jean-Philippe Parent
+; Description: Simulates my preferred keyboard layout, similiar to that of the Pok3r 60% keyboard
+; on any keyboard without programmable keys. i.e. my laptop ^^
 
-// updates:
-// 2023-05-10: replace PrtSc key as second Fn key since it's placed between right alt and right ctrl on curious laptop keyboard layouts (Lenovo) 
-
-// <COMPILER: v1.1.22.00>
+; Updates:
+; 2023-05-10: replace PrtSc key as second Fn key since it's placed between right alt and right ctrl on curious laptop keyboard layouts (Lenovo) 
+; 2023-07-25: update script to AutoHotkey v2.0
 
 
-// =========================
-// Pok3r Layout Marcos
-// =========================
+; =========================
+; Pok3r Layout Marcos
+; =========================
 
+SetCapsLockState "AlwaysOff"
 
-#Persistent
-SetCapsLockState, AlwaysOff
-
-// # as Esc
+; # as Esc
 SC029::Esc
 
-// Fn + # as #
+; Fn + # as #
 Capslock & SC029::SC029
 Appskey & SC029::SC029
 PrintScreen & SC029::SC029
 
 
-// Fn + a,s,d for volume control
+; Fn + a,s,d for volume control
 
-Capslock & a::Send {Volume_Mute}
-Appskey & a::Send {Volume_Mute}
-PrintScreen & a::Send {Volume_Mute}
+Capslock & a::Send "{Volume_Mute}"
+Appskey & a::Send "{Volume_Mute}"
+PrintScreen & a::Send "{Volume_Mute}"
 
-Capslock & s::Send {Volume_Down}
-Appskey & s::Send {Volume_Down}
-PrintScreen & s::Send {Volume_Down}
+Capslock & s::Send "{Volume_Down}"
+Appskey & s::Send "{Volume_Down}"
+PrintScreen & s::Send "{Volume_Down}"
 
-Capslock & d::Send {Volume_Up}
-Appskey & d::Send {Volume_Up}
-PrintScreen & d::Send {Volume_Up}
-
-
-
-// Fn + jkli (left, down, up, right)
-
-Capslock & j::Send {Blind}{Left DownTemp}
-Appskey & j::Send {Blind}{Left DownTemp}
-PrintScreen & j::Send {Blind}{Left DownTemp}
-
-Capslock & j up::Send {Blind}{Left Up}
-Appskey & j up::Send {Blind}{Left Up}
-PrintScreen & j up::Send {Blind}{Left Up}
-
-
-Capslock & k::Send {Blind}{Down DownTemp}
-Appskey & k::Send {Blind}{Down DownTemp}
-PrintScreen & k::Send {Blind}{Down DownTemp}
-
-Capslock & k up::Send {Blind}{Down Up}
-Appskey & k up::Send {Blind}{Down Up}
-PrintScreen & k up::Send {Blind}{Down Up}
-
-
-Capslock & i::Send {Blind}{Up DownTemp}
-Appskey & i::Send {Blind}{Up DownTemp}
-PrintScreen & i::Send {Blind}{Up DownTemp}
-
-Capslock & i up::Send {Blind}{Up Up}
-Appskey & i up::Send {Blind}{Up Up}
-PrintScreen & i up::Send {Blind}{Up Up}
-
-
-Capslock & l::Send {Blind}{Right DownTemp}
-Appskey & l::Send {Blind}{Right DownTemp}
-PrintScreen & l::Send {Blind}{Right DownTemp}
-
-Capslock & l up::Send {Blind}{Right Up}
-Appskey & l up::Send {Blind}{Right Up}
-PrintScreen & l up::Send {Blind}{Right Up}
+Capslock & d::Send "{Volume_Up}"
+Appskey & d::Send "{Volume_Up}"
+PrintScreen & d::Send "{Volume_Up}"
 
 
 
-// Fn + uohy (pgdown, pgup, home, end)
+; Fn + jkli (left, down, up, right)
 
-Capslock & h::SendInput {Blind}{Home Down}
-Appskey & h::SendInput {Blind}{Home Down}
-PrintScreen & h::SendInput {Blind}{Home Down}
+Capslock & j::Send "{Blind}{Left DownTemp}"
+Appskey & j::Send "{Blind}{Left DownTemp}"
+PrintScreen & j::Send "{Blind}{Left DownTemp}"
 
-Capslock & h up::SendInput {Blind}{Home Up}
-Appskey & h up::SendInput {Blind}{Home Up}
-PrintScreen & h up::SendInput {Blind}{Home Up}
-
-
-Capslock & n::SendInput {Blind}{End Down}
-Appskey & n::SendInput {Blind}{End Down}
-PrintScreen & n::SendInput {Blind}{End Down}
-
-Capslock & n up::SendInput {Blind}{End Up}
-Appskey & n up::SendInput {Blind}{End Up}
-PrintScreen & n up::SendInput {Blind}{End Up}
+Capslock & j up::Send "{Blind}{Left Up}"
+Appskey & j up::Send "{Blind}{Left Up}"
+PrintScreen & j up::Send "{Blind}{Left Up}"
 
 
-Capslock & u::SendInput {Blind}{PgUp Down}
-Appskey & u::SendInput {Blind}{PgUp Down}
-PrintScreen & u::SendInput {Blind}{PgUp Down}
+Capslock & k::Send "{Blind}{Down DownTemp}"
+Appskey & k::Send "{Blind}{Down DownTemp}"
+PrintScreen & k::Send "{Blind}{Down DownTemp}"
 
-Capslock & u up::SendInput {Blind}{PgUp Up}
-Appskey & u up::SendInput {Blind}{PgUp Up}
-PrintScreen & u up::SendInput {Blind}{PgUp Up}
-
-
-Capslock & o::SendInput {Blind}{PgDn Down}
-Appskey & o::SendInput {Blind}{PgDn Down}
-PrintScreen & o::SendInput {Blind}{PgDn Down}
-
-Capslock & o up::SendInput {Blind}{PgDn Up}
-Appskey & o up::SendInput {Blind}{PgDn Up}
-PrintScreen & o up::SendInput {Blind}{PgDn Up}
+Capslock & k up::Send "{Blind}{Down Up}"
+Appskey & k up::Send "{Blind}{Down Up}"
+PrintScreen & k up::Send "{Blind}{Down Up}"
 
 
+Capslock & i::Send "{Blind}{Up DownTemp}"
+Appskey & i::Send "{Blind}{Up DownTemp}"
+PrintScreen & i::Send "{Blind}{Up DownTemp}"
 
-// Fn + number keys equal function keys (F1-F10)
-
-Capslock & 1::SendInput {Blind}{F1}
-Appskey & 1::SendInput {Blind}{F1}
-PrintScreen & 1::SendInput {Blind}{F1}
-
-Capslock & 2::SendInput {Blind}{F2}
-Appskey & 2::SendInput {Blind}{F2}
-PrintScreen & 2::SendInput {Blind}{F2}
-
-Capslock & 3::SendInput {Blind}{F3}
-Appskey & 3::SendInput {Blind}{F3}
-PrintScreen & 3::SendInput {Blind}{F3}
-
-Capslock & 4::SendInput {Blind}{F4}
-Appskey & 4::SendInput {Blind}{F4}
-PrintScreen & 4::SendInput {Blind}{F4}
-
-Capslock & 5::SendInput {Blind}{F5}
-Appskey & 5::SendInput {Blind}{F5}
-PrintScreen & 5::SendInput {Blind}{F5}
-
-Capslock & 6::SendInput {Blind}{F6}
-Appskey & 6::SendInput {Blind}{F6}
-PrintScreen & 6::SendInput {Blind}{F6}
-
-Capslock & 7::SendInput {Blind}{F7}
-Appskey & 7::SendInput {Blind}{F7}
-PrintScreen & 7::SendInput {Blind}{F7}
-
-Capslock & 8::SendInput {Blind}{F8}
-Appskey & 8::SendInput {Blind}{F8}
-PrintScreen & 8::SendInput {Blind}{F8}
-
-Capslock & 9::SendInput {Blind}{F9}
-Appskey & 9::SendInput {Blind}{F9}
-PrintScreen & 9::SendInput {Blind}{F9}
-
-Capslock & 0::SendInput {Blind}{F10}
-Appskey & 0::SendInput {Blind}{F10}
-PrintScreen & 0::SendInput {Blind}{F10}
-
-Capslock & -::SendInput {Blind}{F11}
-Appskey & -::SendInput {Blind}{F11}
-PrintScreen & -::SendInput {Blind}{F11}
-
-Capslock & =::SendInput {Blind}{F12}
-Appskey & =::SendInput {Blind}{F12}
-PrintScreen & =::SendInput {Blind}{F12}
+Capslock & i up::Send "{Blind}{Up Up}"
+Appskey & i up::Send "{Blind}{Up Up}"
+PrintScreen & i up::Send "{Blind}{Up Up}"
 
 
-// Make Fn & Backspace equivalent to delete
-Capslock & BS::SendInput {Del Down}
-Appskey & BS::SendInput {Del Down}
-PrintScreen & BS::SendInput {Del Down}
+Capslock & l::Send "{Blind}{Right DownTemp}"
+Appskey & l::Send "{Blind}{Right DownTemp}"
+PrintScreen & l::Send "{Blind}{Right DownTemp}"
 
-Capslock & BS up::SendInput {Del Up}
-Appskey & BS up::SendInput {Del Up}
-PrintScreen & BS up::SendInput {Del Up}
+Capslock & l up::Send "{Blind}{Right Up}"
+Appskey & l up::Send "{Blind}{Right Up}"
+PrintScreen & l up::Send "{Blind}{Right Up}"
 
 
 
-// Make Fn & Enter equivalent to Control+Enter
-Capslock & Enter::SendInput {Ctrl down}{Enter}{Ctrl up}
-Appskey & Enter::SendInput {Ctrl down}{Enter}{Ctrl up}
-PrintScreen & Enter::SendInput {Ctrl down}{Enter}{Ctrl up}
+; Fn + uohy (pgdown, pgup, home, end)
+
+Capslock & h::Send "{Blind}{Home Down}"
+Appskey & h::Send "{Blind}{Home Down}"
+PrintScreen & h::Send "{Blind}{Home Down}"
+
+Capslock & h up::Send "{Blind}{Home Up}"
+Appskey & h up::Send "{Blind}{Home Up}"
+PrintScreen & h up::Send "{Blind}{Home Up}"
+
+
+Capslock & n::Send "{Blind}{End Down}"
+Appskey & n::Send "{Blind}{End Down}"
+PrintScreen & n::Send "{Blind}{End Down}"
+
+Capslock & n up::Send "{Blind}{End Up}"
+Appskey & n up::Send "{Blind}{End Up}"
+PrintScreen & n up::Send "{Blind}{End Up}"
+
+
+Capslock & u::Send "{Blind}{PgUp Down}"
+Appskey & u::Send "{Blind}{PgUp Down}"
+PrintScreen & u::Send "{Blind}{PgUp Down}"
+
+Capslock & u up::Send "{Blind}{PgUp Up}"
+Appskey & u up::Send "{Blind}{PgUp Up}"
+PrintScreen & u up::Send "{Blind}{PgUp Up}"
+
+
+Capslock & o::Send "{Blind}{PgDn Down}"
+Appskey & o::Send "{Blind}{PgDn Down}"
+PrintScreen & o::Send "{Blind}{PgDn Down}"
+
+Capslock & o up::Send "{Blind}{PgDn Up}"
+Appskey & o up::Send "{Blind}{PgDn Up}"
+PrintScreen & o up::Send "{Blind}{PgDn Up}"
 
 
 
-// Make Fn & Space equivalent to Control+Space
-Capslock & Space::SendInput {Ctrl down}{Space}{Ctrl up}
-Appskey & Space::SendInput {Ctrl down}{Space}{Ctrl up}
-PrintScreen & Space::SendInput {Ctrl down}{Space}{Ctrl up}
+; Fn + number keys equal function keys (F1-F10)
+
+Capslock & 1::Send "{Blind}{F1}"
+Appskey & 1::Send "{Blind}{F1}"
+PrintScreen & 1::Send "{Blind}{F1}"
+
+Capslock & 2::Send "{Blind}{F2}"
+Appskey & 2::Send "{Blind}{F2}"
+PrintScreen & 2::Send "{Blind}{F2}"
+
+Capslock & 3::Send "{Blind}{F3}"
+Appskey & 3::Send "{Blind}{F3}"
+PrintScreen & 3::Send "{Blind}{F3}"
+
+Capslock & 4::Send "{Blind}{F4}"
+Appskey & 4::Send "{Blind}{F4}"
+PrintScreen & 4::Send "{Blind}{F4}"
+
+Capslock & 5::Send "{Blind}{F5}"
+Appskey & 5::Send "{Blind}{F5}"
+PrintScreen & 5::Send "{Blind}{F5}"
+
+Capslock & 6::Send "{Blind}{F6}"
+Appskey & 6::Send "{Blind}{F6}"
+PrintScreen & 6::Send "{Blind}{F6}"
+
+Capslock & 7::Send "{Blind}{F7}"
+Appskey & 7::Send "{Blind}{F7}"
+PrintScreen & 7::Send "{Blind}{F7}"
+
+Capslock & 8::Send "{Blind}{F8}"
+Appskey & 8::Send "{Blind}{F8}"
+PrintScreen & 8::Send "{Blind}{F8}"
+
+Capslock & 9::Send "{Blind}{F9}"
+Appskey & 9::Send "{Blind}{F9}"
+PrintScreen & 9::Send "{Blind}{F9}"
+
+Capslock & 0::Send "{Blind}{F10}"
+Appskey & 0::Send "{Blind}{F10}"
+PrintScreen & 0::Send "{Blind}{F10}"
+
+Capslock & -::Send "{Blind}{F11}"
+Appskey & -::Send "{Blind}{F11}"
+PrintScreen & -::Send "{Blind}{F11}"
+
+Capslock & =::Send "{Blind}{F12}"
+Appskey & =::Send "{Blind}{F12}"
+PrintScreen & =::Send "{Blind}{F12}"
+
+
+; Make Fn & Backspace equivalent to delete
+Capslock & BS::Send "{Del Down}"
+Appskey & BS::Send "{Del Down}"
+PrintScreen & BS::Send "{Del Down}"
+
+Capslock & BS up::Send "{Del Up}"
+Appskey & BS up::Send "{Del Up}"
+PrintScreen & BS up::Send "{Del Up}"
+
+
+
+; Make Fn & Enter equivalent to Control+Enter
+Capslock & Enter::Send "{Ctrl down}{Enter}{Ctrl up}"
+Appskey & Enter::Send "{Ctrl down}{Enter}{Ctrl up}"
+PrintScreen & Enter::Send "{Ctrl down}{Enter}{Ctrl up}"
+
+
+
+; Make Fn & Space equivalent to Control+Space
+Capslock & Space::Send "{Ctrl down}{Space}{Ctrl up}"
+Appskey & Space::Send "{Ctrl down}{Space}{Ctrl up}"
+PrintScreen & Space::Send "{Ctrl down}{Space}{Ctrl up}"
 
 
   
-// Make Fn & p equivalent to PrintScreen
-Capslock & p::SendInput {PrintScreen}
-Appskey & p::SendInput {PrintScreen}
-PrintScreen & p::SendInput {PrintScreen}
+; Make Fn & p equivalent to PrintScreen
+Capslock & p::Send "{PrintScreen}"
+Appskey & p::Send "{PrintScreen}"
+PrintScreen & p::Send "{PrintScreen}"
 
 
 
-// Make Fn & y open the Windows Calculator
-CapsLock & y::Run calc.exe
-Appskey & y::Run calc.exe
-PrintScreen & y::Run calc.exe
+; Make Fn & y open the Windows Calculator
+CapsLock & y::Run "calc.exe"
+Appskey & y::Run "calc.exe"
+PrintScreen & y::Run "calc.exe"
 
 
 
-// Make Fn & q the previous media key
-CapsLock & q::SendInput {Media_Prev}
-Appskey & q::SendInput {Media_Prev}
-PrintScreen & q::SendInput {Media_Prev}
+; Make Fn & q the previous media key
+CapsLock & q::Send "{Media_Prev}"
+Appskey & q::Send "{Media_Prev}"
+PrintScreen & q::Send "{Media_Prev}"
 
 
 
-// Make Fn & e the next media key
-CapsLock & e::SendInput {Media_Next}
-Appskey & e::SendInput {Media_Next}
-PrintScreen & e::SendInput {Media_Next}
+; Make Fn & e the next media key
+CapsLock & e::Send "{Media_Next}"
+Appskey & e::Send "{Media_Next}"
+PrintScreen & e::Send "{Media_Next}"
 
-// Make Fn & w the play pause media key
-CapsLock & w::SendInput {Media_Play_Pause}
-Appskey & w::SendInput {Media_Play_Pause}
-PrintScreen & w::SendInput {Media_Play_Pause}
+; Make Fn & w the play pause media key
+CapsLock & w::Send "{Media_Play_Pause}"
+Appskey & w::Send "{Media_Play_Pause}"
+PrintScreen & w::Send "{Media_Play_Pause}"
 
 
-// =========================
-// Keyboard Shortcuts!
-// =========================
+; =========================
+; Keyboard Shortcuts!
+; =========================
 
-#f:: Run, everything
 
-#b::Run, bash
+#f::
+{
+	try{
+		Run "C:\Program Files\Everything\Everything.exe"
+	}
+	catch Error{
+
+	}
+}
+
+#b::
+{
+	try{
+		Run "C:\Program Files\Git\git-bash.exe"
+	}
+	catch Error{
+
+	}
+}
+
+#s::
+{
+	try{
+		Run "C:\Program Files\Sublime Text 3\sublime_text.exe"
+	}
+	catch Error{
+
+	}
+}
