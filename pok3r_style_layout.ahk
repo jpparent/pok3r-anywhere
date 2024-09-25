@@ -27,9 +27,9 @@ PrintScreen & SC029::SC029
 
 ; Fn + a,s,d for volume control
 
-Capslock & a::Send "{Volume_Mute}"
-Appskey & a::Send "{Volume_Mute}"
-PrintScreen & a::Send "{Volume_Mute}"
+Capslock & f::Send "{Volume_Mute}"
+Appskey & f::Send "{Volume_Mute}"
+PrintScreen & f::Send "{Volume_Mute}"
 
 Capslock & s::Send "{Volume_Down}"
 Appskey & s::Send "{Volume_Down}"
